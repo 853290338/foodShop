@@ -4,6 +4,7 @@ import com.shop.project.dao.ProductCategoryDao;
 import com.shop.project.dao.ProductInfoDao;
 import com.shop.project.entity.ProductCategory;
 import com.shop.project.entity.ProductInfo;
+import com.shop.project.enums.ProductStatusEnum;
 import com.shop.project.service.ProductCategoryService;
 import com.shop.project.vo.ProductInfoVo;
 import com.shop.project.vo.ProductVo;
@@ -38,7 +39,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 
     for (ProductCategory productCategory : list) {
       List<ProductInfo> infolist = productInfoDao
-          .findByProductStatusAndCategoryType(0, productCategory.getCategoryType());
+          .findByProductStatusAndCategoryType(ProductStatusEnum.UP.getCode(), productCategory.getCategoryType());
 
       if (CollectionUtils.isNotEmpty(infolist)) {
         ProductVo vo = new ProductVo();
