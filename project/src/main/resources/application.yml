@@ -1,0 +1,18 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: project
+  datasource:
+    url: jdbc:mysql://localhost:3306/foot_shop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
