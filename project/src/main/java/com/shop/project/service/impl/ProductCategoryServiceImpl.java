@@ -11,6 +11,7 @@ import com.shop.project.vo.ProductVo;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,11 +50,12 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         List<ProductInfoVo> vos = new ArrayList<>();
         for (ProductInfo productInfo : infolist) {
           ProductInfoVo productInfoVo = new ProductInfoVo();
-          productInfoVo.setProductDescription(productInfo.getProductDescription());
-          productInfoVo.setProductIcon(productInfo.getProductIcon());
-          productInfoVo.setProductId(productInfo.getProductId());
-          productInfoVo.setProductName(productInfo.getProductName());
-          productInfoVo.setProductPrice(productInfo.getProductPrice());
+//          productInfoVo.setProductDescription(productInfo.getProductDescription());
+//          productInfoVo.setProductIcon(productInfo.getProductIcon());
+//          productInfoVo.setProductId(productInfo.getProductId());
+//          productInfoVo.setProductName(productInfo.getProductName());
+//          productInfoVo.setProductPrice(productInfo.getProductPrice());
+          BeanUtils.copyProperties(productInfo, productInfoVo);
           vos.add(productInfoVo);
         }
 
